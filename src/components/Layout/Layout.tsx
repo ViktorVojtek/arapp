@@ -12,9 +12,10 @@ type Props = {
   backgroundColor?: string;
   barStyle?: StatusBarStyle;
   children: ReactNode;
-  fluid?: boolean;
+  isFluid?: boolean;
   isHeaderDivider?: boolean;
   isHeaderShown?: boolean;
+  isTransparent?: boolean;
   safearea?: boolean;
   scroll?: boolean;
 } & NativeSafeAreaViewProps;
@@ -24,9 +25,10 @@ export default function Layout(props: Props) {
     children,
     backgroundColor,
     barStyle,
-    fluid,
+    isFluid,
     isHeaderDivider,
     isHeaderShown,
+    isTransparent,
     safearea,
     scroll,
     ...restSafeareaProps
@@ -46,7 +48,7 @@ export default function Layout(props: Props) {
   const ViewTag = scroll ? ScrollView : Stack;
   const viewTagBaseProps = {
     backgroundColor,
-    paddingHorizontal: fluid ? 0 : 5,
+    paddingHorizontal: isFluid ? 0 : 5,
     flexGrow: 1,
   };
   const viewTagProps = scroll
@@ -58,14 +60,16 @@ export default function Layout(props: Props) {
     : {
         ...viewTagBaseProps,
         paddingHorizontal: undefined,
-        px: fluid ? 0 : '$2',
+        px: isFluid ? 0 : '$2',
       };
 
   return (
     <YStack backgroundColor={backgroundColor} flexGrow={1}>
       <SafeareaTag {...safeareaProps}>
         <StatusBar barStyle={barStyle || 'default'} />
-        {isHeaderShown && <Header isDivider={isHeaderDivider} />}
+        {isHeaderShown && (
+          <Header isDivider={isHeaderDivider} isTransparent={isTransparent} />
+        )}
 
         <ViewTag {...viewTagProps}>{children}</ViewTag>
       </SafeareaTag>
@@ -79,7 +83,8 @@ Layout.defaultProps = {
   edges: ['top', 'right', 'left'],
   isHeaderDivider: true,
   isHeaderShown: false,
-  fluid: false,
+  isTransparent: false,
+  isFluid: false,
   safearea: true,
   scroll: false,
 };

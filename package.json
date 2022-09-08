@@ -19,6 +19,7 @@
     "@tamagui/feather-icons": "^1.0.1-beta.160",
     "@tamagui/font-inter": "^1.0.1-beta.160",
     "@tamagui/theme-base": "^1.0.1-beta.160",
+    "@viro-community/react-viro": "^2.23.0",
     "expo": "^45.0.0",
     "expo-linear-gradient": "^11.4.0",
     "expo-screen-orientation": "^4.3.0",
