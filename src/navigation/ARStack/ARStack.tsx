@@ -1,11 +1,11 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import HomeScreen from '../../screens/Home';
+import ARScreen from '../../screens/AR';
 import ExampleScreen from '../../screens/Example';
 
 export type HomeStackParamList = {
-  Home: undefined;
+  AR: undefined;
   Example: {text?: string};
 };
 
@@ -13,11 +13,11 @@ const Stack = createNativeStackNavigator<HomeStackParamList>();
 
 function HomeStack() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="AR">
       <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={HomeScreen.screenOptions}
+        name="AR"
+        component={ARScreen}
+        options={ARScreen.screenOptions}
       />
       <Stack.Screen
         name="Example"

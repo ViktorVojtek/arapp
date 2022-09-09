@@ -3,7 +3,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import {Button, Text, YStack} from 'tamagui';
 import Layout from '../../components/Layout';
-import {HomeStackParamList} from '../../navigation/HomeStack/HomeStack';
+import {HomeStackParamList} from '../../navigation/ARStack/ARStack';
 
 type Props = NativeStackScreenProps<HomeStackParamList, 'Example'>;
 
@@ -11,7 +11,7 @@ export default function ExampleScreen(props: Props) {
   const {navigation} = props;
 
   function onPress(): void {
-    navigation.navigate('Home');
+    navigation.navigate('AR');
   }
 
   return (

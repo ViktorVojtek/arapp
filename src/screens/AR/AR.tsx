@@ -1,20 +1,20 @@
 import React from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-import {HomeStackParamList} from '../../navigation/HomeStack/HomeStack';
+import {HomeStackParamList} from '../../navigation/ARStack';
 import Layout from '../../components/Layout';
-import Home from '../../components/Home';
+import ARBase from '../../components/AR';
 
-type Props = NativeStackScreenProps<HomeStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<HomeStackParamList, 'AR'>;
 
-export default function HomeScreen(_props: Props) {
+export default function ARScreen(_props: Props) {
   return (
     <Layout isFluid isHeaderDivider={false} isHeaderShown isTransparent>
-      <Home />
+      <ARBase />
     </Layout>
   );
 }
 
-HomeScreen.screenOptions = {
+ARScreen.screenOptions = {
   headerShown: false,
 };
